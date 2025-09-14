@@ -60,3 +60,22 @@ span.chip {
   border-radius: 3px;
   padding: 4.5px;
 }
+
+.word-block {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /*background-color: #535bf2;*/
+}
+
+.word-block > span {
+  background-color: #2e2e33;
+  font-size: xx-large;
+  text-align: center;
+  margin: 5px;
+  width: 50px;
+  height: 50px;
+  border-bottom: 2px solid #8E8E8E;
+}

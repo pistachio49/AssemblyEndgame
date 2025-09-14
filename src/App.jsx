@@ -5,7 +5,7 @@ import { languages } from "./languages"
 import './App.css'
 
 function App() {
-
+    const [currentWord, setCurrentWord] = React.useState('React')
 
     const languageElements = languages.map(lang => {
         const styles = {
@@ -23,6 +23,9 @@ function App() {
         )
     })
 
+    const mapCurrentWord = currentWord.split('').map((ch, ind) => <span key={ind}>{ch.toUpperCase()}</span>)
+    console.log(mapCurrentWord)
+
     return (
         <main>
             <header>
@@ -30,12 +33,18 @@ function App() {
                 <p>Guess the word within 8 attempts to keep the
                     programming world safe from Assembly!</p>
             </header>
+
             <section className="game-status">
                 <h2>You win!</h2>
                 <p>Well done! 🎉</p>
             </section>
+
             <section className="language-chips">
                 {languageElements}
+            </section>
+
+            <section className="word-block">
+                {mapCurrentWord}
             </section>
         </main>
     )
