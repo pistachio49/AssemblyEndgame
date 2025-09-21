@@ -6,6 +6,25 @@ import './App.css'
 
 function App() {
     const [currentWord, setCurrentWord] = React.useState('React')
+    const keys = "abcdefghijklmnopqrstuvwxyz".split("").map(ch => ({
+        character: ch.toUpperCase(),
+        active: 0
+    }))
+
+    const [keyboard, setKeyboard] =React.useState(keys)
+
+    const keyboardElements = keyboard.map(key => {
+        const styles = {
+            backgroundColor: key.active===0? "#bea10d" : key.active===1? "green" : "red",
+            color: "black"
+        }
+
+        return (
+            <span className="keyboard-element"
+            style={styles}
+            key={key.character}>{key.character}</span>
+        )
+    })
 
     const languageElements = languages.map(lang => {
         const styles = {
@@ -24,7 +43,7 @@ function App() {
     })
 
     const mapCurrentWord = currentWord.split('').map((ch, ind) => <span key={ind}>{ch.toUpperCase()}</span>)
-    console.log(mapCurrentWord)
+    // console.log(mapCurrentWord)
 
     return (
         <main>
@@ -45,6 +64,10 @@ function App() {
 
             <section className="word-block">
                 {mapCurrentWord}
+            </section>
+
+            <section className="keyboard">
+                {keyboardElements}
             </section>
         </main>
     )
